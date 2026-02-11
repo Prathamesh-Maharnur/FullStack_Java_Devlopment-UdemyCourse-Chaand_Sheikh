@@ -1,0 +1,63 @@
+1)The method print(boolean) in the type JspWriter is not applicable for the arguments (void)
+
+sol: I used a method inside expression which return void so I simply changes it to sriptlet
+
+2) org.apache.jasper.JasperException: Cannot find any information on property [firstname] in a bean of type [org.maharnur.prathamesh.User]
+sol: the property name mismatched due to case sensitive (change firstname->firstName)
+
+3)HTTP Status 405 – Method Not Allowed
+Type Status Report
+
+Message HTTP method GET is not supported by this URL
+
+Description The method received in the request-line is known by the origin server but not supported by the target resource.
+
+sol: check which url is making get instead of post because I mistakenly wrote action="post" instead of nethod="post".
+
+4)
+Type Exception Report
+
+Message Cannot invoke "String.hashCode()" because "action" is null
+
+Description The server encountered an unexpected condition that prevented it from fulfilling the request.
+
+Exception
+
+java.lang.NullPointerException: Cannot invoke "String.hashCode()" because "action" is null
+	org.maharnur.prathamesh.SiteController.doGet(SiteController.java:30)
+	jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+Note The full stack trace of the root cause is available in the server logs.
+
+sol: actually the form method="post" and value="login" was not set which leaded to directing to doGet() method causing action = null
+
+5)
+
+
+Type Exception Report
+
+Message Cannot call sendRedirect() after the response has been committed
+
+Description The server encountered an unexpected condition that prevented it from fulfilling the request.
+
+Exception
+
+java.lang.IllegalStateException: Cannot call sendRedirect() after the response has been committed
+	org.apache.catalina.connector.ResponseFacade.checkCommitted(ResponseFacade.java:515)
+	org.apache.catalina.connector.ResponseFacade.sendRedirect(ResponseFacade.java:375)
+	org.maharnur.prathamesh.MemberAreaController.doGet(MemberAreaController.java:37)
+	jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+Note The full stack trace of the root cause is available in the server logs.
+
+
+sol: add break keyword after each case in switch statement
+
+6) java.lang.ClassNotFoundException: com.mysql.cj.jdbc.Driver
+OR
+No suitable driver found
+sol: this problem arise due to connector jar is not present in web-inf folder for this 
+1) properties-->deployment assembly-->add maven dependencies-->apply then update maven project --> restart server--> run as server
+2)update maven project and build with goal clean package.
