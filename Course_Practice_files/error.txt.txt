@@ -86,3 +86,15 @@ sol: the error says web.xml is very old i.e 2.3 version but EL were supported in
 java.lang.NumberFormatException: Cannot parse null string java.base/java.lang.Integer.parseInt(Integer.java:630) java.base/java.lang.Integer.parseInt(Integer.java:786)
 
 sol: either the value obtained is doesn't exist or is not passed from request parameters/ input type="hidden" and since it was needed in update query it throwed exception.
+
+10)
+error:The requested resource [/S22L10-Update_User_Operation_Part2/$%7BpageContext.request.contextPath%7D/site] is not available
+
+
+sol:(how I solved): I guess the issue was with connector jar being not connected properly with tomcat I checked it with contextPath() that error was thrown then i used ${contextPath} as soon as i added maven dependecies in deployment assembly it after updating maven project it started working.
+
+scenario and reason explanation: Required jars are not copied to WEB-INF/lib
+Tomcat runtime classpath becomes inconsistent
+JSP engine may partially work
+EL behaves strangely
+You see ${pageContext.request.contextPath} printed literally

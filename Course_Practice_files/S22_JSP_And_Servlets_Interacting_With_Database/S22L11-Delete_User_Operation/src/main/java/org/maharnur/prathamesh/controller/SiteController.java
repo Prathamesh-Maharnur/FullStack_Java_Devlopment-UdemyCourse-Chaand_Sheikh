@@ -34,6 +34,10 @@ String path = request.getParameter("page").toLowerCase();
 			case "updateuser":
 				updateuser(request,response);
 				break;
+			case "deleteuser":
+				new UsersModel().deleteUser(Integer.parseInt(request.getParameter("user_id")));
+				listusers(request,response);
+				break;
 			default:
 				request.setAttribute("title","error page");
 				request.getRequestDispatcher("error.jsp").forward(request, response);
