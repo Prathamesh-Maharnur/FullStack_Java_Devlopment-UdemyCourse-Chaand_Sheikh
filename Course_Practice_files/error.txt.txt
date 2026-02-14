@@ -65,4 +65,4 @@ sol: this problem arise due to connector jar is not present in web-inf folder fo
 7)
 java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:102)
-sol: 
+sol: add "allowPublickKeyRetrieval=true" in jdbc url
