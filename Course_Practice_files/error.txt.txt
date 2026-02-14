@@ -61,3 +61,8 @@ No suitable driver found
 sol: this problem arise due to connector jar is not present in web-inf folder for this 
 1) properties-->deployment assembly-->add maven dependencies-->apply then update maven project --> restart server--> run as server
 2)update maven project and build with goal clean package.
+
+7)
+java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:102)
+sol: 
