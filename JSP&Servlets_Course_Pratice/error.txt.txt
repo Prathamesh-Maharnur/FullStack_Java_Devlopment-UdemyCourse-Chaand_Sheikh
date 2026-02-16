@@ -98,3 +98,6 @@ Tomcat runtime classpath becomes inconsistent
 JSP engine may partially work
 EL behaves strangely
 You see ${pageContext.request.contextPath} printed literally
+
+11) Project facet Java version 21 is not supported.
+sol: go to properties-> project facets -> change java version to which tomcat supports (in my case tomcat 10.1 I should have java-17)
