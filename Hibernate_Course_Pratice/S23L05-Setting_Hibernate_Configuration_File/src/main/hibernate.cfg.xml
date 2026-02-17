@@ -27,6 +27,6 @@
         <property name="hbm2ddl.auto">update</property>
 
         <!-- Mapping files -->
-        <mapping class="org.maharnur.prathamesh.entity.Users.class"/>
+        <mapping class="org.maharnur.prathamesh.entity.Users"/>
     </session-factory>
 </hibernate-configuration>
