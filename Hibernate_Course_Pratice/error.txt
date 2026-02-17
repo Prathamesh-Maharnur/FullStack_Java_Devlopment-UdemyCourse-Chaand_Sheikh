@@ -1,0 +1,13 @@
+1) Downloading external resources is disabled. [DownloadResourceDisabled]
+sol: go to Window -> Preferences -> Click XML(Wild Web Developers) -> check Download external resources like DTD, XSD 
+	-> apply -> apply and close
+
+2) Error while downloading 'http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd' to 'C:
+ \Users\Prathamesh Maharnur\.lemminx\cache\http\hibernate.sourceforge.net\hibernate-configuration-3.0.dtd' : 
+ '[java.io.FileNotFoundException] https://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd with code: 
+ 404 Not Found'. [DownloadProblem]
+sol: remove these starting lines because "That URL is old and no longer available (404)" -> 
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
