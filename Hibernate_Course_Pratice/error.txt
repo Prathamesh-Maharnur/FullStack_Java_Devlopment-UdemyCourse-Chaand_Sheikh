@@ -11,3 +11,6 @@ sol: remove these starting lines because "That URL is old and no longer availabl
     "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
     "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
+
+3)Syntax error on token "beginTransaction", Identifier expected after this token
+sol: you may be writing code in class which should be in main method or other method
