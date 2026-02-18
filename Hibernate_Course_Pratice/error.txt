@@ -14,3 +14,9 @@ sol: remove these starting lines because "That URL is old and no longer availabl
 
 3)Syntax error on token "beginTransaction", Identifier expected after this token
 sol: you may be writing code in class which should be in main method or other method
+
+4)Hibernate: select u1_0.user_id,u1_0.first_name,u1_0.last_name,u1_0.password,u1_0.username from users u1_0 where u1_0.user_id=?
+Before updation: Users [userId=0, username=null, password=null, firstname=null, lastname=null]
+After updation: Users [userId=0, username=null, password=prasad@123, firstname=null, lastname=null]
+
+sol: actually I was not saving returned user object from session.find() in my entity class object
