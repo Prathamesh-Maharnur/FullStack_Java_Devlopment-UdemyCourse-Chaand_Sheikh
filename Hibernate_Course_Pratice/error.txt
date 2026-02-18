@@ -20,3 +20,6 @@ Before updation: Users [userId=0, username=null, password=null, firstname=null, 
 After updation: Users [userId=0, username=null, password=prasad@123, firstname=null, lastname=null]
 
 sol: actually I was not saving returned user object from session.find() in my entity class object
+
+5)Cannot make a static reference to the non-static field session
+sol: the field session is non-static so include the session field in static main method
