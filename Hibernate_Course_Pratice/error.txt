@@ -23,3 +23,7 @@ sol: actually I was not saving returned user object from session.find() in my en
 
 5)Cannot make a static reference to the non-static field session
 sol: the field session is non-static so include the session field in static main method
+
+6)Caused by: org.hibernate.query.sqm.UnknownEntityException: Could not resolve root entity 'Users'
+sol: in createQuery("from Users", Users.class) the table name passed is wrong it should be database table name i.e "users" with case sensitive 
+	-> createQuery("from users")
