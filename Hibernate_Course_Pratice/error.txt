@@ -43,3 +43,21 @@ sol: The parameter ":password" is not present in HQL. check the query statement 
 
 11)WARN: HHH90010101: Closing shared session with unprocessed transaction completion actions
 sol: session is closed before transaction is commited.
+
+12)I removed name="users" from @Entity then this error
+Exception in thread "main" java.lang.IllegalArgumentException: org.hibernate.query.sqm.UnknownEntityException: Could not resolve root entity 'users'
+sol: HQL uses ENTITY NAME. SQL uses TABLE NAME. They are NOT the same thing.
+@Entity	Entity name defaults to class name → Users
+@Table(name="users")	Database table name
+So: Entity name = Users and Table name = users
+simple add name="users" in @Entity or change HQL's "users" to class name "Users".
+
+13)Exception in thread "main" org.hibernate.internal.util.config.ConfigurationException: Could not locate cfg.xml resource [hibernate.cfg.xml]
+sol: either the hibernate.cfg.xml is not created or the path of file is incorrect
+
+14)Exception in thread "main" org.hibernate.internal.util.config.ConfigurationException: Unable to perform unmarshalling at line number -1 and column -1 in RESOURCE hibernate.cfg.xml. Message: cvc-elt.1.a: Cannot find the declaration of element 'session-factory'.
+sol: the root tag <hibernate-configuration> may not be closed or missed in hibernate.cfg.xml file.
+
+15)Exception in thread "main" org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [org.prathamesh.maharnur.entity.Users]
+Caused by: java.lang.ClassNotFoundException: Could not load requested class: org.prathamesh.maharnur.entity.Users
+sol: The path of entity class may not exist or package path is incorrect in <mapping class="<package_path>"/> of hibernate.cfg.xml file
