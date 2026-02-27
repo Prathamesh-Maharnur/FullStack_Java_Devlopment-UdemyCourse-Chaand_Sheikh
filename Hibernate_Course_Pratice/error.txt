@@ -31,3 +31,15 @@ sol: in createQuery("from Users", Users.class) the table name passed is wrong it
 7)Exception in thread "main" java.lang.IllegalArgumentException: org.hibernate.query.SyntaxException: At 1:51 and token 'LIKE', extraneous input 'LIKE' expecting <EOF> [from users where username='Prathamesh' OR password LIKE '%123 ]
 Caused by: org.hibernate.query.SyntaxException: At 1:51 and token 'LIKE', extraneous input 'LIKE' expecting <EOF> [from users where username='Prathamesh' OR password LIKE '%123 ]
 sol: add single quote(') at the end of LIKE string (i.e at the end of 123).
+
+8)Exception in thread "main" java.lang.IllegalArgumentException: org.hibernate.query.SyntaxException: At 1:11 and token 'set', mismatched input 'set', expecting one of the following tokens: <EOF>, ',', CROSS, EXCEPT, FETCH, FULL, GROUP, HAVING, INNER, INTERSECT, JOIN, LEFT, LIMIT, OFFSET, ORDER, OUTER, RIGHT, SELECT, UNION, WHERE [from users set password = 'super_password' where password='%123%']
+sol:"replace" from to "set"
+
+9)Exception in thread "main" java.lang.IllegalArgumentException: org.hibernate.query.IllegalQueryOperationException: Result type given for a non-SELECT Query [update users set password = 'super_password' where password='%123%']
+sol: I used wrong method "createQuery(,)" which was passed result type of user use instead "createMutationOquery()" for update query.
+
+10)Exception in thread "main" java.lang.IllegalArgumentException: No parameter named ':password' in query with named parameters [oldPassword, newPassword]
+sol: The parameter ":password" is not present in HQL. check the query statement and setParameter() fields.
+
+11)WARN: HHH90010101: Closing shared session with unprocessed transaction completion actions
+sol: session is closed before transaction is commited.
