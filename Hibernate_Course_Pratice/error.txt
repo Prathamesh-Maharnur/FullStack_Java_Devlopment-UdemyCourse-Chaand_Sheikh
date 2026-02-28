@@ -63,4 +63,4 @@ Caused by: java.lang.ClassNotFoundException: Could not load requested class: org
 sol: The path of entity class may not exist or package path is incorrect in <mapping class="<package_path>"/> of hibernate.cfg.xml file
 
 16)Exception in thread "main" java.lang.IllegalArgumentException: Entity may not be null
-sol: the entity with given Id didn't exist so it was null and when it got to deletion it thrown exception
+sol: the entity with given Id didn't exist so it was null and when it got to deletion it thrown exception	
