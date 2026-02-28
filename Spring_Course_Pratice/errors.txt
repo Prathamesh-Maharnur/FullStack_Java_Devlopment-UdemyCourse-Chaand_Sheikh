@@ -1,0 +1,6 @@
+1)Error: Could not find or load main class org.apache.catalina.startup.Bootstrap
+Caused by: java.lang.ClassNotFoundException: org.apache.catalina.startup.Bootstrap
+sol: Go to Servers Tab > Double Click on your Server > Open Launch Configuration > Classpath(tab) > Click on User Entries > Add External Jars > Add Boorstrap.jar and tomcat-juli.jar from Tomcat/bin > Apply > Ok
+
+2)Exception in thread "main" org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.maharnur.prathamesh.interfaces.Car' available
+sol: Keep the App.java and AppConfig.java in default package. Define class with @Component
