@@ -4,3 +4,6 @@ sol: Go to Servers Tab > Double Click on your Server > Open Launch Configuration
 
 2)Exception in thread "main" org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'org.maharnur.prathamesh.interfaces.Car' available
 sol: Keep the App.java and AppConfig.java in default package. Define class with @Component
+
+3)Exception in thread "main" org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'org.maharnur.prathamesh.interfaces.Car' available: expected single matching bean but found 2: corolla,swift
+sol: There are more than one ean creating ambiguity, now pass one more argument i.e name of bean in getBean('',) 
