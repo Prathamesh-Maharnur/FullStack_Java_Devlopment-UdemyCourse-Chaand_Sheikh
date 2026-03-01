@@ -7,7 +7,8 @@ import org.springframework.stereotype.Component;
 // by default component has lowercase classname - "corolla"
 @Component("Corolla")
 public class Corolla implements Car {
-	@Autowired
+	// required =false makes if bean found inject else don't throw exception 
+	@Autowired(required = false)
 	Engine engine;
 	
 	@Override
