@@ -6,4 +6,11 @@ sol: Go to Servers Tab > Double Click on your Server > Open Launch Configuration
 sol: Keep the App.java and AppConfig.java in default package. Define class with @Component
 
 3)Exception in thread "main" org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'org.maharnur.prathamesh.interfaces.Car' available: expected single matching bean but found 2: corolla,swift
-sol: There are more than one ean creating ambiguity, now pass one more argument i.e name of bean in getBean('',) 
+sol: There are more than one b	ean creating ambiguity, now pass one more argument i.e. name of bean in getBean('',) 
+
+4)Exception in thread "main" java.lang.NullPointerException: Cannot read field "type" because "this.engine" is null
+sol: the dependency "engine" bean is not instatantiated this can be done by @Autowired by Spring or manually.
+
+5)Exception in thread "main" org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'Corolla': Unsatisfied dependency expressed through field 'engine': No qualifying bean of type 'org.maharnur.prathamesh.car.Engine' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+sol:dependency "engine" bean is marked @Autowired but it's javabean class is not available, therefore add @Component annotation to 
+"Engine" class.
