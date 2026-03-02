@@ -14,3 +14,6 @@ sol: the dependency "engine" bean is not instatantiated this can be done by @Aut
 5)Exception in thread "main" org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'Corolla': Unsatisfied dependency expressed through field 'engine': No qualifying bean of type 'org.maharnur.prathamesh.car.Engine' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 sol:dependency "engine" bean is marked @Autowired but it's javabean class is not available, therefore add @Component annotation to 
 "Engine" class.
+
+6)The method getBean(Class<Car>) is undefined for the type App
+sol: you may have used AnnotationConfigApplicationContext obj with getBean(), use <AnnotationConfigApplicationContext> obj.getBean()
