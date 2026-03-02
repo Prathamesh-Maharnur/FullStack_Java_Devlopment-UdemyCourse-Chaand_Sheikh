@@ -17,3 +17,10 @@ sol:dependency "engine" bean is marked @Autowired but it's javabean class is not
 
 6)The method getBean(Class<Car>) is undefined for the type App
 sol: you may have used AnnotationConfigApplicationContext obj with getBean(), use <AnnotationConfigApplicationContext> obj.getBean()
+
+7)Syntax error on token "specs", Identifier expected after this token
+sol: the code is written in class shift to method / main() method
+
+9)Exception in thread "main" org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'corolla': Unsatisfied dependency expressed through field 'engine': No qualifying bean of type 'org.maharnur.prathamesh.interfaces.Engine' available: expected single matching bean but found 2: v6,v8
+Caused by: org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'org.maharnur.prathamesh.interfaces.Engine' available: expected single matching bean but found 2: v6,v8
+sol: there exist bean ambiguity so see the dependency (bean) and also @Qualifier is added appropriately
