@@ -29,3 +29,7 @@ sol: there exist bean ambiguity so see the dependency (bean) and also @Qualifier
 Exception in thread "main" org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'corolla': Unsatisfied dependency expressed through field 'engine': No qualifying bean of type 'org.maharnur.prathamesh.interfaces.Engine' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true), @org.springframework.beans.factory.annotation.Qualifier("V8Engine")}
 sol: the bean is which we are use as dependency in Corolla class(int this case) is not found look for @Qualifier, @Component and 
 	@Bean with name values.
+
+
+11)Exception in thread "main" org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.scheduling.config.internalAsyncAnnotationProcessor' defined in class path resource [org/springframework/scheduling/annotation/ProxyAsyncConfiguration.class]: Failed to instantiate [org.springframework.scheduling.annotation.AsyncAnnotationBeanPostProcessor]: Factory method 'asyncAdvisor' threw exception with message: @EnableAsync annotation metadata was not injected
+sol: 
