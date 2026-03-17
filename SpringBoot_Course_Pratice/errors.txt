@@ -12,3 +12,9 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving template [home]
 2026-03-10T18:31:25.440+05:30 ERROR 6264 --- [S34L02-Adding_Models_In_SpringBoot] [nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: Error resolving template [home], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
 
 sol: the given home page, head, header and footer.html were missing
+
+2) org.springframework.web.servlet.resource.NoResourceFoundException: No static resource  for request '/'.
+sol: check the static, templates files are available then check the mapping annotation url.
+
+3) while putting a condition for seed data used List == null resulting in empty tab;e
+sol: use List.size() == 0 
