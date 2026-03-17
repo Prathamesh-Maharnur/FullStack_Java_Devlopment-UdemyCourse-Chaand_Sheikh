@@ -18,3 +18,20 @@ sol: check the static, templates files are available then check the mapping anno
 
 3) while putting a condition for seed data used List == null resulting in empty tab;e
 sol: use List.size() == 0 
+
+4)Field postService in org.maharnur.prathamesh.S34L05_Displaying_Data_On_Webpage_SpringBoot.controller.HomeController required a bean of type 'org.maharnur.prathamesh.S34L05_Displaying_Data_On_Webpage_SpringBoot.services.PostService' that could not be found.
+sol: check for @Service in service file and @Component in seedData file.
+
+5)There was an unexpected error (type=Internal Server Error, status=500).
+An error happened during template parsing (template: "class path resource [templates/home.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/home.html]")
+Caused by: org.attoparser.ParseException: Could not parse as each: "${post.title}" (template: "home" - line 20, col 13)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 43 more
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as each: "${post.title}" (template: "home" - line 20, col 13)
+	at org.thymeleaf.standard.expression.EachUtils.parseEach(EachUtils.java:68)
+	at org.thymeleaf.standard.processor.StandardEachTagProcessor.doProcess(StandardEachTagProcessor.java:59)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+sol: check the thymeleaf tags and attributes properly like th:each and th:text.
