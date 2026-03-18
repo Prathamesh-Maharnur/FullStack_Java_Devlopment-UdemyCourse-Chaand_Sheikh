@@ -1,5 +1,4 @@
-package org.maharnur.prathamesh.S35L01_Adding_Accounts_Model_In_SpringBoot.models;
-
+package org.maharnur.prathamesh.S35L02_Updating_The_Seed_Data.models;
 
 import java.time.LocalDateTime;
 
@@ -14,7 +13,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Entity
 @Getter
 @Setter
@@ -22,8 +20,8 @@ import lombok.Setter;
 public class Post {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long Id;
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+    private Long id;
 
     private String title;
 
@@ -31,8 +29,8 @@ public class Post {
     private String body;
 
     private LocalDateTime createdAt;
-    
+
     @ManyToOne
-    @JoinColumn(name="account_id", referencedColumnName="id", nullable=true)
+    @JoinColumn(name="account_id", referencedColumnName="id", nullable=false)
     private Account account;
 }

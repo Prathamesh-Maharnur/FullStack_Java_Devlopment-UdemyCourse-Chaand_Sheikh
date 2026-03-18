@@ -39,3 +39,7 @@ sol: check the thymeleaf tags and attributes properly like th:each and th:text.
 6)org.springframework.dao.DataIntegrityViolationException: not-null property references a null or transient value for entity org.maharnur.prathamesh.S35L01_Adding_Accounts_Model_In_SpringBoot.models.Post.account
         at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.convertHibernateAccessException(HibernateExceptionTranslator.java:186) ~[spring-orm-7.0.5.jar:7.0.5]
 sol: set the nullable attribute to true for @JoinColumn
+
+7)org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientPropertyValueException: Persistent instance of 'org.maharnur.prathamesh.S35L02_Updating_The_Seed_Data.models.Post' references an unsaved transient instance of 'org.maharnur.prathamesh.S35L02_Updating_The_Seed_Data.models.Account' (persist the transient instance before flushing) [org.maharnur.prathamesh.S35L02_Updating_The_Seed_Data.models.Post.account -> org.maharnur.prathamesh.S35L02_Updating_The_Seed_Data.models.Account]
+        at org.springframework.orm.jpa.EntityManagerFactoryUtils.convertJpaAccessExceptionIfPossible(EntityManagerFactoryUtils.java:461) ~[spring-orm-7.0.5.jar:7.0.5]
+sol: the Post entity was using Account entity (OneToMany) therefore Account entity needs to be persisted first (i.e use accountService.save(account01)) then persist Post entity(i.e postService.save(post01)).
