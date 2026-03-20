@@ -47,3 +47,31 @@ sol: the Post entity was using Account entity (OneToMany) therefore Account enti
 8)org.springframework.dao.DataIntegrityViolationException: not-null property references a null or transient value for entity org.maharnur.prathamesh.S35L03_Adding_Register_Account_Form.model.Post.account
         at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.convertHibernateAccessException(HibernateExceptionTranslator.java:186) ~[spring-orm-7.0.5.jar:7.0.5]
 sol: Instead of post02.setAccount(account02) I did post01.setAccount(account02) twice resulting in the post02 being NULL.
+
+9)This application has no explicit mapping for /error, so you are seeing this as a fallback.
+
+Fri Mar 20 11:38:52 IST 2026
+There was an unexpected error (type=Internal Server Error, status=500).
+An error happened during template parsing (template: "class path resource [templates/register.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/register.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+Caused by: org.attoparser.ParseException: Error during execution of processor 'org.thymeleaf.spring6.processor.SpringInputGeneralFieldTagProcessor' (template: "register" - line 32, col 69)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Error during execution of processor 'org.thymeleaf.spring6.processor.SpringInputGeneralFieldTagProcessor' (template: "register" - line 32, col 69)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:117)
+Caused by: java.lang.IllegalStateException: Neither BindingResult nor plain target object for bean name 'email' available as request attribute
+	at org.springframework.web.servlet.support.BindStatus.<init>(BindStatus.java:146)
+sol: the email attribute(${email}) of th:field doesn't specify which object it belongs to in register.html
+change it to *{email} it means it belong to th:object="account" now
+
+10)This application has no explicit mapping for /error, so you are seeing this as a fallback.
+
+Fri Mar 20 11:45:38 IST 2026
+There was an unexpected error (type=Internal Server Error, status=500).
+An error happened during template parsing (template: "class path resource [templates/register.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/register.html]")
+Caused by: java.lang.IllegalStateException: Neither BindingResult nor plain target object for bean name 'account' available as request attribute
+	at org.springframework.web.servlet.support.BindStatus.<init>(BindStatus.java:146)
+sol: You are trying to bind account object but it is not available in model, so add that attribute in your GetMapping("/register") Controller with 
+	Account account = new Account();
+	model.addAttribute("account", account);
