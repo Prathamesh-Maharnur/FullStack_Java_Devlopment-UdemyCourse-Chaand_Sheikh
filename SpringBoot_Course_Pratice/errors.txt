@@ -81,3 +81,10 @@ sol: the problem was it was not marked as Configuration So I added @Configuratio
 
 12) Failed to instantiate [org.springframework.security.web.SecurityFilterChain]: Factory method 'filterChain' threw exception with message: pattern must start with a /
 sol: one of the url in requestMatcher() does not start with '/' so actually the error was 'js' should be '/js/**'.
+
+13)GITHUB ERROR:
+error: read error while indexing SpringBoot_Course_Pratice/S35L06-SpringSecurityLoginRules_BCrypt/db/blogdb.mv.db: Permission denied
+error: SpringBoot_Course_Pratice/S35L06-SpringSecurityLoginRules_BCrypt/db/blogdb.mv.db: failed to insert into database
+error: unable to index file 'SpringBoot_Course_Pratice/S35L06-SpringSecurityLoginRules_BCrypt/db/blogdb.mv.db'
+fatal: updating files failed
+sol: stop the SpringBoot app which has the following file and then upload it.
