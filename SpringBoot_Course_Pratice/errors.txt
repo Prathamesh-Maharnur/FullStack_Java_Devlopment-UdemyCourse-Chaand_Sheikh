@@ -75,3 +75,9 @@ Caused by: java.lang.IllegalStateException: Neither BindingResult nor plain targ
 sol: You are trying to bind account object but it is not available in model, so add that attribute in your GetMapping("/register") Controller with 
 	Account account = new Account();
 	model.addAttribute("account", account);
+
+11) After adding Spring security starter pack and all the configuration When I entered credentials it shows invalid
+sol: the problem was it was not marked as Configuration So I added @Configuration in WebSecurityConfig class and issue was solved
+
+12) Failed to instantiate [org.springframework.security.web.SecurityFilterChain]: Factory method 'filterChain' threw exception with message: pattern must start with a /
+sol: one of the url in requestMatcher() does not start with '/' so actually the error was 'js' should be '/js/**'.

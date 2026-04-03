@@ -24,6 +24,7 @@ public class WebSecurityConfig {
             .authenticated();
         });
 
+        // TODO: remove these after upgrading the db from H2 infile DB
         http.csrf(csrf -> csrf.disable());
         http
             .headers(headers -> 
