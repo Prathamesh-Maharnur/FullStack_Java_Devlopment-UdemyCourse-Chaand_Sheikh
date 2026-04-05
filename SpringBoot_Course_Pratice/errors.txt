@@ -88,3 +88,10 @@ error: SpringBoot_Course_Pratice/S35L06-SpringSecurityLoginRules_BCrypt/db/blogd
 error: unable to index file 'SpringBoot_Course_Pratice/S35L06-SpringSecurityLoginRules_BCrypt/db/blogdb.mv.db'
 fatal: updating files failed
 sol: stop the SpringBoot app which has the following file and then upload it.
+
+14)This page isn’t working
+127.0.0.1 redirected you too many times.
+Try deleting your cookies.
+ERR_TOO_MANY_REDIRECTS
+sol: add the static and template files in the folder because of no web pages are present the spring security redirects to authenticate and Instead of clean 404, Spring Security thinks: this loop continues /login → tries to render → fails → redirect → /login
+
