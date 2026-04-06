@@ -95,3 +95,5 @@ Try deleting your cookies.
 ERR_TOO_MANY_REDIRECTS
 sol: add the static and template files in the folder because of no web pages are present the spring security redirects to authenticate and Instead of clean 404, Spring Security thinks: this loop continues /login → tries to render → fails → redirect → /login
 
+15)account_authority (join table of @ManyToMany relationship) is empty table
+sol: made a mistake of not using setAuthorities(authoritiesObj) of 'account04' after making a set of 'Authority'.
