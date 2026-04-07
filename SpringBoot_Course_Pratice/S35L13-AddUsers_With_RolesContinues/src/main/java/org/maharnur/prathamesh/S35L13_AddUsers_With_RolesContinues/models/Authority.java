@@ -1,0 +1,19 @@
+package org.maharnur.prathamesh.S35L13_AddUsers_With_RolesContinues.models;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+public class Authority {
+    
+    @Id
+    private Long id;
+
+    private String name;
+}

@@ -97,3 +97,12 @@ sol: add the static and template files in the folder because of no web pages are
 
 15)account_authority (join table of @ManyToMany relationship) is empty table
 sol: made a mistake of not using setAuthorities(authoritiesObj) of 'account04' after making a set of 'Authority'.
+
+16)org.springframework.dao.InvalidDataAccessResourceUsageException: Could not prepare statement [Table "AUTHORITY" not found; SQL statement:
+select a1_0.id,a1_0.name from authority a1_0 where a1_0.id=? [42102-240]] [select a1_0.id,a1_0.name from authority a1_0 where a1_0.id=?]; SQL [select a1_0.id,a1_0.name from authority a1_0 where a1_0.id=?]
+sol: paste this line in application.properties:
+		spring.jpa.hibernate.ddl-auto=create-drop
+	because this line was missing hibernate was not creating table and throwed error of 'Authority' Table not found.
+
+17)This application has no explicit mapping for /error, so you are seeing this as a fallback. Tue Apr 07 12:03:14 IST 2026 There was an unexpected error (type=Not Found, status=404). No static resource admin. org.springframework.web.servlet.resource.NoResourceFoundException: No static resource admin for request '/admin'
+sol: check for @Controller annotation in Controller class where '/admin' mapping exist
