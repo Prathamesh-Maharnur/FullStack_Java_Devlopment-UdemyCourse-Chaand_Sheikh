@@ -21,9 +21,6 @@ public class HomeController{
         model.addAttribute("posts", posts);
         return "home";
     }
-    @GetMapping("/private")
-public String privatePage() {
-    return "secured";
-}
+
 }
 
