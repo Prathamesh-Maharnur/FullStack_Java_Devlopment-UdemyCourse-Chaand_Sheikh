@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.maharnur.prathamesh</groupId>
-	<artifactId>S35L14-Applications_Has_Bugs</artifactId>
+	<artifactId>S36L01-UpdatingHomepage_For_PostLinks</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name />
 	<description />
