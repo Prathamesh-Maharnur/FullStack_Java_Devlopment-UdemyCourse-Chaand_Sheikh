@@ -1,7 +1,7 @@
-package org.maharnur.prathamesh.S35L14_Applications_Has_Bugs.controller;
+package org.maharnur.prathamesh.S35L06_SpringSecurityLoginRules_BCrypt.controller;
 
-import org.maharnur.prathamesh.S35L14_Applications_Has_Bugs.models.Account;
-import org.maharnur.prathamesh.S35L14_Applications_Has_Bugs.services.AccountService;
+import org.maharnur.prathamesh.S35L06_SpringSecurityLoginRules_BCrypt.models.Account;
+import org.maharnur.prathamesh.S35L06_SpringSecurityLoginRules_BCrypt.services.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class AcountController {
+public class AccountController {
     
     @Autowired
     private AccountService accountService;
@@ -32,15 +32,5 @@ public class AcountController {
     public String login(Model model){
         return "login";
     }
-
-    @GetMapping("/profile")
-    public String profile(Model model){
-        return "profile";
-    }
-
-    @GetMapping("/test")
-    public String test(Model model){
-        return "test";
-    }    
 }
 

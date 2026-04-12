@@ -1,7 +1,7 @@
-package org.maharnur.prathamesh.S35L11_Adding_Authorities_to_UserAccount.controller;
+package org.maharnur.prathamesh.S35L12_Add_Users_With_RolesAndAuthorities.controller;
 
-import org.maharnur.prathamesh.S35L11_Adding_Authorities_to_UserAccount.models.Account;
-import org.maharnur.prathamesh.S35L11_Adding_Authorities_to_UserAccount.services.AccountService;
+import org.maharnur.prathamesh.S35L12_Add_Users_With_RolesAndAuthorities.models.Account;
+import org.maharnur.prathamesh.S35L12_Add_Users_With_RolesAndAuthorities.services.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class AcountController {
+public class AccountController {
     
     @Autowired
     private AccountService accountService;

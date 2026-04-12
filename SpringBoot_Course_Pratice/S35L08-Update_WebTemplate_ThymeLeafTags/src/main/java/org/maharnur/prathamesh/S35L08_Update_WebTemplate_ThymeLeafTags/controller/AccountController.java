@@ -1,7 +1,7 @@
-package org.maharnur.prathamesh.S35L07_SecurityLogin_LoadUserByUsername.controller;
+package org.maharnur.prathamesh.S35L08_Update_WebTemplate_ThymeLeafTags.controller;
 
-import org.maharnur.prathamesh.S35L07_SecurityLogin_LoadUserByUsername.models.Account;
-import org.maharnur.prathamesh.S35L07_SecurityLogin_LoadUserByUsername.services.AccountService;
+import org.maharnur.prathamesh.S35L08_Update_WebTemplate_ThymeLeafTags.models.Account;
+import org.maharnur.prathamesh.S35L08_Update_WebTemplate_ThymeLeafTags.services.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class AcountController {
+public class AccountController {
     
     @Autowired
     private AccountService accountService;
