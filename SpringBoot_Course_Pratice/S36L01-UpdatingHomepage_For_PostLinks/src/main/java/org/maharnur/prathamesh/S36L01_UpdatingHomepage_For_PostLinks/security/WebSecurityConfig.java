@@ -26,11 +26,11 @@ public class WebSecurityConfig {
 
         http.authorizeHttpRequests(auth -> auth
             .requestMatchers("/","/login", "/register", "/db-console/**"
-                , "/css/**", "/fonts/**", "/images/**", "/js/**"
+                , "/css/**", "/fonts/**", "/images/**", "/js/**", "/posts/**"
             )
             .permitAll()
             .requestMatchers("/profile/**").authenticated()
-            .requestMatchers("/admin/**", "/posts/**").hasRole("ADMIN")
+            .requestMatchers("/admin/**").hasRole("ADMIN")
             .requestMatchers("/editor/**").hasAnyRole("ADMIN","EDITOR")
             .requestMatchers("/test/**").hasAuthority(Privileges.ACCESS_ADMIN_PANEL.getPrivilege())
         )
