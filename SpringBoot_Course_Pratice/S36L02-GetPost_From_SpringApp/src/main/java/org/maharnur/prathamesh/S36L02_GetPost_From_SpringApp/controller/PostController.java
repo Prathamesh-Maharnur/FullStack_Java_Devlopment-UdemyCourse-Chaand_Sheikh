@@ -20,7 +20,7 @@ public class PostController {
     public String getPost(@PathVariable Long id, Model model){
         Optional<Post> optionalPost = postService.findById(id);
         if(optionalPost.isPresent()){
-            Post post = new Post();
+            Post post = optionalPost.get();
             model.addAttribute("post",post);
             return "post_views/post";
         }else{
