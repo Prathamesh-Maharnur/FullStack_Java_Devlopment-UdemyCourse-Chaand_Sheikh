@@ -153,4 +153,20 @@ sol: add proper inverted commas for string + variable in th:text
 th:text="'Author: ' + ${post.account.firstname} + ' | Created at:' + ${post.createdAt} "
 
 28) http://127.0.0.1:8080/@%7B'/posts/'%20+%20$%7Bpost.id%7D%7D on clicking href consisting thymeleaf expression for '/posts/id'
-sol: the thyme leaf expression is NOT processed at all so use 'th:' before the href.
+sol: the thyme leaf expression is NOT processed at all so use 'th:' before the href. 	 	
+
+29)
+Refused to apply style from '<URL>' because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled. it Refused to execute script from 'http://127.0.0.1:8080/posts/js/jquery-3.4.1.min.js' because its MIME type ('') is not executable, and strict MIME type checking is enabled.
+Refused to apply style from '<URL>' because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled.Understand this error 1:1 Refused to apply style from 'http://127.0.0.1:8080/login' because its MIME type ('text/html') is not a supported stylesheet MIME type, and strict MIME checking is enabled.Understand this error
+sol: add proper prefix 'th:' before src,href and proper convention like start with '@{}' and path should start with '/'.
+
+30)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "post.account.firstname" (template: "post_views/post" - line 21, col 13) at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE] at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE] at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.1.3.RELEASE.jar:3.1.3.RELEASE]
+sol: check with the model.addAttribute section and the obj is properly copied into the model obj [eg. Post post = optionalPost.get() 
+	and not Post post = new Post()].
+
+31)ERROR 2988 --- [S36L03-ViewPost_With_EditOptions] [io-8080-exec-10] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "java.security.Principal.getName()" because "principal" is null] with root cause
+
+32)No resource with given URL found
+sol: the url reached backend but couldn't find the mapping of view. So check in controller section for url spelling mistake
+[eg: '/posts/3' should be written as '/post/3'].
