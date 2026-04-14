@@ -170,3 +170,33 @@ sol: check with the model.addAttribute section and the obj is properly copied in
 32)No resource with given URL found
 sol: the url reached backend but couldn't find the mapping of view. So check in controller section for url spelling mistake
 [eg: '/posts/3' should be written as '/post/3'].
+
+33) backend error:
+2026-04-14T10:30:12.116+05:30 ERROR 20436 --- [S36L04-AddPost_In_SpringBootApp] [nio-8080-exec-9] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/post_views/add_post.html]")] with root cause
+
+org.thymeleaf.exceptions.TemplateProcessingException: The expression used for object selection is post, which is not valid: only variable expressions (${...}) are allowed in '{th:object,data-th-object}' attributes in Spring-enabled environments. (template: "post_views/add_post" - line 27, col 15)
+frontend error: No resource with given URL found
+sol: change the th:object to "${post}"
+
+34) 
+Caused by: org.attoparser.ParseException: Could not parse as expression: "{account}" (template: "post_views/add_post" - line 30, col 66)
+        at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+        at org.attoparser.MarkupParser.parse(MarkupParser.java:257) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+        at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230) ~[thymeleaf-3.1.3.RELEASE.jar:3.1.3.RELEASE]
+sol: change th:field content from "{account}" to "*{account}".
+
+35) ckeditor5.js:5 Uncaught CKEditorError: ckeditor-duplicated-modules Read more: https://ckeditor.com/docs/ckeditor5/latest/support/error-codes.html#error-ckeditor-duplicated-modules at ckeditor5.js:5:5420 (anonymous) @ ckeditor5.js:5
+sol: there are two duplicate files which serve same purpose. so in this case ckeditor5.umd.js and ckeditor5.js.
+     remove ckeditor5.umd.js since the import tags requires only ckeditor5.js.if umd.js file is use changes in tags need to be done.
+
+36) GET http://localhost:8080/ckeditor/ckeditor5.umd.js net::ERR_ABORTED 403 (Forbidden)Understand this error add:1 Refused to execute script from 'http://localhost:8080/ckeditor/ckeditor5.umd.js' because its MIME type ('') is not executable, and strict MIME type checking is enabled.Understand this error
+sol: Spring security is blocking it. add the given url in requestMatcher() in WebSecurityConfig.java file
+
+37)ckeditor5.js:1 Failed to load resource: the server responded with a status of 401
+sol: Spring security is blocking it. add the given url in requestMatcher() in WebSecurityConfig.java file
+
+38)Refused to apply style from 'http://127.0.0.1:8080/ckeditor/ckeditor5.css' because its MIME type ('') is not a supported stylesheet MIME type, and strict MIME checking is enabled
+sol: check path in folder OR check path in file OR Spring security is blocking it. add the given url in requestMatcher() in WebSecurityConfig.java file
+
+39)Uncaught SyntaxError: Cannot use import statement outside a module (at add:226:9)Understand this error
+sol: the given file is ESM (module-based file) convert it to UMD by using <script src=""></script>.
