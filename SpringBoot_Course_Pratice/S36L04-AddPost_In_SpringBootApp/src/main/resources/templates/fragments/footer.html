@@ -76,7 +76,7 @@
       <script th:src="@{/js/custom.js}"></script>
 
       <!-- CKeditor js -->
-       <!-- change folder name to ckeditor<version_number> or the path in imports -->
+      <!-- change folder name to ckeditor<version_number> or the path in imports -->
       <script type="importmap">
         {
           "imports": {
@@ -92,25 +92,90 @@
           Paragraph,
           Bold,
           Italic,
+          Heading,
+          Link,
+          List,
+          Indent,
+          BlockQuote,
+          Image,
+          ImageToolbar,
+          ImageUpload,
+          ImageCaption,
+          ImageStyle,
+          ImageResize,
+          Table,
+          TableToolbar,
+          MediaEmbed,
+          CodeBlock,
+          Alignment,
           Font,
         } from "ckeditor5";
 
         ClassicEditor.create({
           attachTo: document.querySelector("#editor"),
-          licenseKey: "GPL", 
-          plugins: [Essentials, Paragraph, Bold, Italic, Font],
+          licenseKey: "GPL",
+          plugins: [
+            Essentials,
+            Paragraph,
+            Bold,
+            Italic,
+            Heading,
+            Link,
+            List,
+            Indent,
+            BlockQuote,
+            Image,
+            ImageToolbar,
+            ImageUpload,
+            ImageCaption,
+            ImageStyle,
+            ImageResize,
+            Table,
+            TableToolbar,
+            MediaEmbed,
+            CodeBlock,
+            Alignment,
+            Font,
+          ],
           toolbar: [
             "undo",
             "redo",
             "|",
+            "heading",
+            "|",
             "bold",
             "italic",
             "|",
-            "fontSize",
-            "fontFamily",
-            "fontColor",
-            "fontBackgroundColor",
+            "link",
+            "|",
+            "uploadImage",
+            "|",
+            "insertTable",
+            "mediaEmbed",
+            "|",
+            "bulletedList",
+            "numberedList",
+            "|",
+            "outdent",
+            "indent",
+            "|",
+            "alignment",
+            "|",
+            "codeBlock",
           ],
+
+          image: {
+            toolbar: [
+              "imageTextAlternative",
+              "imageStyle:inline",
+              "imageStyle:block",
+              "imageStyle:side",
+            ],
+          },
+
+          table: {
+            contentToolbar: ["tableColumn", "tableRow", "mergeTableCells"],
+          },
           licenseKey: "GPL",
         })
           .then((editor) => {
