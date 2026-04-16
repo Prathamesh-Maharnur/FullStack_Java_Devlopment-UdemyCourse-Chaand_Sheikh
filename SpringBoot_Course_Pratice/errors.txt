@@ -200,3 +200,9 @@ sol: check path in folder OR check path in file OR Spring security is blocking i
 
 39)Uncaught SyntaxError: Cannot use import statement outside a module (at add:226:9)Understand this error
 sol: the given file is ESM (module-based file) convert it to UMD by using <script src=""></script>.
+
+40) title and id were getting saved in db but body in ckeditor was not getting saved and displayed in frontend.
+sol: the issue was the configuration in script tag of footer.html.replace 
+Add the id "editor" to <textarea> instead of <div> OR 
+textarea[name='body'] #editor" with "textarea[name='body']" in <script> of footer.html .
+because the ckeditor was retrieving the content from <div> with id="editor" but in our case it's <textarea>.
