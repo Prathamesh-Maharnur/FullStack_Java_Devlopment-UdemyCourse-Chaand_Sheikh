@@ -206,3 +206,7 @@ sol: the issue was the configuration in script tag of footer.html.replace
 Add the id "editor" to <textarea> instead of <div> OR 
 textarea[name='body'] #editor" with "textarea[name='body']" in <script> of footer.html .
 because the ckeditor was retrieving the content from <div> with id="editor" but in our case it's <textarea>.
+
+41) one image of page body was not fetched on post.html
+sol: dev tools -> network tab -> check reponse -> 400
+go to that website fetched the new url of that image and pasted it in seeddata file.

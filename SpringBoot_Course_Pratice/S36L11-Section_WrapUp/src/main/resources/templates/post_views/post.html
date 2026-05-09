@@ -43,7 +43,7 @@
         ' | Created At: ' + ${#temporals.format(post.createdAt, 'yyyy-MM-dd HH:mm')}+
         ' | Updated At: ' + ${#temporals.format(post.updatedAt, 'yyyy-MM-dd HH:mm')} 
         "></h5>
-        <p th:utext="${post.body}">Body</p>
+        <div class="post-body" th:utext="${post.body}"></div>
         <div sec:authorize="isAuthenticated()" th:if="${isOwner}">
           <a th:href="@{'/posts/'+ ${post.id} + '/edit'}">
             <button type="button" class="btn btn-secondary btn-lg">Edit</button>
