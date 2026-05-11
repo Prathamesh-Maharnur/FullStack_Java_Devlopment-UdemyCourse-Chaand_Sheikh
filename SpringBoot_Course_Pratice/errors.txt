@@ -225,3 +225,13 @@ sol: springboot validation are added at the backend but not handled in frontend
 
 44) springboot couldn't override the browser fields validation in form
 sol: add 'novalidate' attribute in <form> tag
+
+45)Caused by: jakarta.persistence.RollbackException: Error while committing the transaction [HV000030: No validator could be found for constraint 'jakarta.validation.constraints.NotEmpty' validating type 'java.time.LocalDate'. Check configuration for 'date_of_birth']
+        at org.hibernate.internal.ExceptionConverterImpl.convertCommitException(ExceptionConverterImpl.java:73) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+        at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:92) ~[hibernate-core-7.2.12.Final.jar:7.2.12.Final]
+        at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:553) ~[spring-orm-7.0.7.jar:7.0.7]
+        ... 39 common frames omitted
+sol: check the seed data fields it is the reason the constraints exception is thrown (because if/if not age filled  default values          	generates less than exception)
+
+46) Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "#fields.hasErrors('password')" (template: "account_views/register" - line 35, col 22)
+sol: add ${} outside the content of th:if=""
