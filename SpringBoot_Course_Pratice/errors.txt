@@ -210,3 +210,18 @@ because the ckeditor was retrieving the content from <div> with id="editor" but 
 41) one image of page body was not fetched on post.html
 sol: dev tools -> network tab -> check reponse -> 400
 go to that website fetched the new url of that image and pasted it in seeddata file.
+
+42) org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Unable to build Hibernate SessionFactory  [persistence unit: default] ; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Database may be already in use: "D:/programs_learning/Java/Udemy_Chaand/SpringBoot_Course_Pratice/S37L01-Adding_ValidationIn_RegisterForm/db/blogdb.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-240]] [n/a]
+
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database may be already in use: "D:/programs_learning/Java/Udemy_Chaand/SpringBoot_Course_Pratice/S37L01-Adding_ValidationIn_RegisterForm/db/blogdb.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-240]
+sol: close the another running app and then restart your app
+
+43) jakarta.validation.ConstraintViolationException: Validation failed for classes [org.maharnur.prathamesh.S37L01_Adding_ValidationIn_RegisterForm.models.Account] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+        ConstraintViolationImpl{interpolatedMessage='Email missing', propertyPath=email, rootBeanClass=class org.maharnur.prathamesh.S37L01_Adding_ValidationIn_RegisterForm.models.Account, messageTemplate='Email missing'}
+]
+sol: springboot validation are added at the backend but not handled in frontend
+
+
+44) springboot couldn't override the browser fields validation in form
+sol: add 'novalidate' attribute in <form> tag
