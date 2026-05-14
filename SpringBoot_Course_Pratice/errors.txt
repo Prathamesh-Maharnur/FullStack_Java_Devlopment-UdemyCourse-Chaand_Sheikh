@@ -235,3 +235,9 @@ sol: check the seed data fields it is the reason the constraints exception is th
 
 46) Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "#fields.hasErrors('password')" (template: "account_views/register" - line 35, col 22)
 sol: add ${} outside the content of th:if=""
+
+47) GET http://127.0.0.1:8080/uploads/eYRHEPBVnvphoto_blazzer.jpeg 403 (Forbidden)
+sol: "/uploads/**" is not allowed in requestMatchers of webSecurityConfig.java so either include auth.requestMatchers().authenticated 	or auth.AnyRequest().authenticated().
+
+48) profile?message=you+uploaded+successfully:130  GET http://127.0.0.1:8080/images/uploads/SrulqPgNNqphoto_blazzer.jpeg 404 (Not Found)
+sol: while saving the account object the path provide was wrong ([** -> images] is wrong) should be ([images/** -> uploads/] is right)
