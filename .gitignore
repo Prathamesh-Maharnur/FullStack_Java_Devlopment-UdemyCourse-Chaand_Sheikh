@@ -52,3 +52,9 @@ Thumbs.db
 ############################
 *.trace.db
 *.mv.db
+
+############################
+# SMTP credential 
+############################
+
+**/SpringBoot_Course_Pratice/**/secret.properties
