@@ -241,3 +241,6 @@ sol: "/uploads/**" is not allowed in requestMatchers of webSecurityConfig.java s
 
 48) profile?message=you+uploaded+successfully:130  GET http://127.0.0.1:8080/images/uploads/SrulqPgNNqphoto_blazzer.jpeg 404 (Not Found)
 sol: while saving the account object the path provide was wrong ([** -> images] is wrong) should be ([images/** -> uploads/] is right)
+
+49) for a hyperlink "forgot-password" the response was 302 and url printed was "@%7B/forgot-password%7D"
+sol: add "th" prefix for the the href attribute and also change the path as per thymeleaf.
