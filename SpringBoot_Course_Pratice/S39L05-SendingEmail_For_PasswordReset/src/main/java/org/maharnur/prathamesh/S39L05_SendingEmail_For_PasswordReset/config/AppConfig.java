@@ -46,10 +46,10 @@ public class AppConfig {
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol",mail_transport_protocol);
-        props.put("spring.mail.properties.mail.smtp.auth", mail_smtp_auth);
-        props.put("spring.mail.properties.mail.smtp.starttls.enable",mail_smtp_starttls_enable);
+        props.put("mail.smtp.auth", mail_smtp_auth);
+        props.put("mail.smtp.starttls.enable",mail_smtp_starttls_enable);
         props.put("mail.debug",true);
-        props.put("spring.mail.smtp.ssl.trust",mail_smtp_ssl_trust);
+        props.put("mail.smtp.ssl.trust",mail_smtp_ssl_trust);
 
         return mailSender;
     }
