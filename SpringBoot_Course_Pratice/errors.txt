@@ -250,3 +250,6 @@ org.eclipse.angus.mail.smtp.SMTPSendFailedException: 530-5.7.0 Must issue a STAR
 530-5.7.0  https://support.google.com/a/answer/3221692 and review RFC 3207
 530 5.7.0 specifications. d2e1a72fcca58-83f19775ca3sm12478825b3a.14 - gsmtp
 sol: remove the "spring.mail.properties" prefix from the props.put("","") in AppConfig.java
+
+51) console: 2026-05-18T20:14:45.270+05:30  WARN 16900 --- [S39L08-ResetPassword_SpringBoot_WrapUp] [nio-8080-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+sol: the url with 'POST' method doesn't exist in controller, so check foe the url in controller.[change_password (wrong) -> change-password (correct)]
