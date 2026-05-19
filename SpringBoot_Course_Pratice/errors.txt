@@ -253,3 +253,7 @@ sol: remove the "spring.mail.properties" prefix from the props.put("","") in App
 
 51) console: 2026-05-18T20:14:45.270+05:30  WARN 16900 --- [S39L08-ResetPassword_SpringBoot_WrapUp] [nio-8080-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
 sol: the url with 'POST' method doesn't exist in controller, so check foe the url in controller.[change_password (wrong) -> change-password (correct)]
+
+52) Caused by: org.attoparser.ParseException: (Line = 38, Column = 82) Malformed markup: Attribute "name" appears more than once in element
+        at org.attoparser.MarkupEventProcessorHandler.handleAttribute(MarkupEventProcessorHandler.java:549) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
+sol: the "name" attribute is duplicated remove/replace one of them in home.html at line no.38
