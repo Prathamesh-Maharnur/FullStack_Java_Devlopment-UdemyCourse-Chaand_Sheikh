@@ -257,3 +257,13 @@ sol: the url with 'POST' method doesn't exist in controller, so check foe the ur
 52) Caused by: org.attoparser.ParseException: (Line = 38, Column = 82) Malformed markup: Attribute "name" appears more than once in element
         at org.attoparser.MarkupEventProcessorHandler.handleAttribute(MarkupEventProcessorHandler.java:549) ~[attoparser-2.0.7.RELEASE.jar:2.0.7.RELEASE]
 sol: the "name" attribute is duplicated remove/replace one of them in home.html at line no.38
+
+53) exlore: 2026-05-21T16:23:37.347+05:30  WARN 24064 --- [S42L01-SpringBoot_Logging] [nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Ignoring exception, response committed already: org.springframework.http.converter.HttpMessageNotWritableException: Could not write JSON: Document nesting depth (501) exceeds the maximum allowed (500, from `StreamWriteConstraints.getMaxNestingDepth()`)
+sol: This usually happens because Spring/Jackson is trying to convert an object to JSON, but the object contains a circular reference (infinite nesting).
+User
+ └── orders
+      └── user
+           └── orders
+                └── user
+
+Ignore one side of the relation. with @JsonIgnore(not fixed approach). other approach also exist 
