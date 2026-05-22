@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head :: head}">
+
+<body class="sub_page">
+
+    <div class="hero_area">
+        <div class="bg-box">
+            <img th:src="@{/images/nav-bg.jpg}" alt="">
+        </div>
+        <header th:replace="~{fragments/header :: header}">
+    </div>
+
+    <!-- book section -->
+    <section class="food_section layout_padding">
+        <div class="container">
+            <div class="heading_container">
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form_container">
+                        <h3>Edit Post</h3>
+                        <form action="#" th:action="@{'/posts/{id}/edit' (id=${post.id})}" method="post" th:object="${post}">
+                            <div class="mb-3">
+                                <input id="account" type="hidden" name="account" th:field="*{account}">
+                            </div>
+                            <div class="mb-3">
+                                <input id="title" name="title" th:field="*{title}" type="text" class="form-control"
+                                    placeholder="Enter title" />
+                                <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="alert alert-danger" role="alert" >Title error</p>    
+                            </div>
+                            <div class="mb-3" >
+                                <div >
+                                    <textarea id="editor" name="body" th:field="*{body}"  class="form-control"
+                                    placeholder="Enter body" ></textarea>
+                                    <p th:if="${#fields.hasErrors('body')}" th:errors="*{body}" class="alert alert-danger" role="alert" >Body error</p>
+                                </div>
+                            </div>
+
+                            <div class="btn_box">
+                                <button class="btn btn-primary" type="submit">
+                                    Update Post
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="map_container ">
+                        <div id="googleMap"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end book section -->
+
+    <!-- end about section -->
+    <footer th:replace="~{fragments/footer :: footer}">
+</body>
+
+</html>
