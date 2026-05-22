@@ -267,3 +267,6 @@ User
                 └── user
 
 Ignore one side of the relation. with @JsonIgnore(not fixed approach). other approach also exist 
+
+54) Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.security.web.SecurityFilterChain]: Factory method 'filterChain' threw exception with message: pattern must start with a /
+sol: eg:- change a url from "css/**" to "/css/**" in WebSecurityConfig.java
