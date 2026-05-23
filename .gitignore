@@ -57,4 +57,12 @@ Thumbs.db
 # SMTP credential 
 ############################
 
+############################
+# course zip files 
+############################
+course_files/
+
+############################
+# credentials file 
+############################
 **/SpringBoot_Course_Pratice/**/secret.properties
