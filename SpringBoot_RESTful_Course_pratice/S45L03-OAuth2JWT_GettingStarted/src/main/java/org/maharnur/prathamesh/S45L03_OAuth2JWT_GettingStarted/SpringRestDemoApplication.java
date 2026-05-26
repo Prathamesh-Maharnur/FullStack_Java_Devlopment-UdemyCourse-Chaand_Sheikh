@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class S45L03OAuth2JwtGettingStartedApplication {
+public class SpringRestDemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(S45L03OAuth2JwtGettingStartedApplication.class, args);
+		SpringApplication.run(SpringRestDemoApplication.class, args);
 	}
 
 }
