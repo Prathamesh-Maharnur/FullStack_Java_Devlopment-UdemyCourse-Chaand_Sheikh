@@ -66,3 +66,5 @@ course_files/
 # credentials file 
 ############################
 **/SpringBoot_Course_Pratice/**/secret.properties
+keypair.pem
+private.pem
