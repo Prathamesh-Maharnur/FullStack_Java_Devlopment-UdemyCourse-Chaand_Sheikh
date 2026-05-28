@@ -3,3 +3,12 @@ Caused by: java.lang.NoClassDefFoundError: org/springframework/boot/autoconfigur
 Caused by: java.lang.ClassNotFoundException: org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
 sol: This error occurred when using openapi v2.8 in springboot 4 because of incompatibility. Go to mvnrepository.com for this dependency
      "springdoc-openapi-starter-webmvc-ui" v3.0.3 and add it tin pom.xml, project will now run.
+
+2) Parameter 0 of constructor in org.maharnur.prathamesh.S45L05_OAuth_JWT_TokenContinues.security.SecurityConfig required a bean of type 'org.maharnur.prathamesh.S45L05_OAuth_JWT_TokenContinues.config.RsaKeyProperties' that could not be found. Action: Consider defining a bean of type 'org.maharnur.prathamesh.S45L05_OAuth_JWT_TokenContinues.config.RsaKeyProperties' in your configuration.
+sol: add @ConfigurationPropertiesScan in main application.java file.
+
+3) Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.security.oauth2.jwt.JwtEncoder]: Factory method 'jwtEncoder' threw exception with message: Cannot invoke "java.security.interfaces.RSAPublicKey.getModulus()" because "pub" is null
+sol: the path to rsa public and private key was not mentioned hence it caused error mention the path like 'rsa.public-key=classpath:certs/public.pem'.
+
+4) in Swagger-ui after doing authorization by passing the token, one api '/test' could not be used 
+sol: check the the @SecurityScheme name and @SecurityRequirement name attribute are same.

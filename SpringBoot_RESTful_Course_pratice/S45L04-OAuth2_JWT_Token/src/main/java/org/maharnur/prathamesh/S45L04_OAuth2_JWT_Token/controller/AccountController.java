@@ -17,7 +17,7 @@ public class AccountController {
 
     @GetMapping("/test")
     @Tag(name="Test", description="The Test API")
-    @SecurityRequirement(name="prathamesh-springboot-demo-api")
+    @SecurityRequirement(name="springboot-demo-api")
     public String tests(){
         return "Test Api";
     }
