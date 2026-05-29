@@ -12,3 +12,10 @@ sol: the path to rsa public and private key was not mentioned hence it caused er
 
 4) in Swagger-ui after doing authorization by passing the token, one api '/test' could not be used 
 sol: check the the @SecurityScheme name and @SecurityRequirement name attribute are same.
+
+5) Description:
+Parameter 0 of method jwtEncoder in org.maharnur.prathamesh.S45L06_AddingPublic_PrivateKey_Generator.security.SecurityConfig required a bean of type 'com.nimbusds.jose.jwk.source.JWKSource' that could not be found.
+Action:
+Consider defining a bean of type 'com.nimbusds.jose.jwk.source.JWKSource' in your configuration.
+
+sol: add @Bean to jwkSource() in SecurityConfig.
