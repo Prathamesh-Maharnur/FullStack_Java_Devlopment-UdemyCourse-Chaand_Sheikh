@@ -3,6 +3,9 @@ package org.maharnur.prathamesh.S45L06_AddingPublic_PrivateKey_Generator.securit
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 
+import org.springframework.stereotype.Component;
+
+@Component
 final class KeyGeneratorUtils {
     
     private KeyGeneratorUtils(){}
