@@ -31,6 +31,7 @@ public class SecurityConfig {
 
         private RSAKey rsaKey;
 
+        @Bean
         public JWKSource<SecurityContext> jwkSource(){
                 rsaKey = Jwks.generateRsa();
                 JWKSet jwkSet = new JWKSet(rsaKey); 
