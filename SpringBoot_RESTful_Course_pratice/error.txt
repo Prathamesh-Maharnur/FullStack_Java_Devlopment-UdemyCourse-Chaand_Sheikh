@@ -19,3 +19,12 @@ Action:
 Consider defining a bean of type 'com.nimbusds.jose.jwk.source.JWKSource' in your configuration.
 
 sol: add @Bean to jwkSource() in SecurityConfig.
+
+6) Caused by: java.lang.ClassNotFoundException: org.springframework.security.oauth2.server.resource.web.access.BearerTokenAccessDeniedHandler
+sol: mistakenly added 'oauth2-client' instead of 'oauth2-resource-server'
+
+7) java.lang.IllegalArgumentException: Given that there is no default password encoder configured, each password must have a password encoding prefix. Please either prefix this password with '{noop}' or set a default password encoder in `DelegatingPasswordEncoder`.
+sol: add PasswordEncoder in SecurityConfig.java
+
+8) Database "D:/programs_learning/Java/Udemy_Chaand/SpringBoot_RESTful_Course_pratice/S45L09-UserFromDB__JPAAndJWT_Continues/db/blogdb" not found, either pre-create it or allow remote database creation (not recommended in secure environments) [90149-240] 90149/90149
+sol: check the url entered in H2 db field and field matches exactly.
