@@ -1,0 +1,30 @@
+1) Caused by: java.lang.IllegalStateException: @ConditionalOnMissingBean did not specify a bean using type, name or annotation and the attempt to deduce the bean's type failed
+Caused by: java.lang.NoClassDefFoundError: org/springframework/boot/autoconfigure/web/servlet/WebMvcProperties at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+Caused by: java.lang.ClassNotFoundException: org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+sol: This error occurred when using openapi v2.8 in springboot 4 because of incompatibility. Go to mvnrepository.com for this dependency
+     "springdoc-openapi-starter-webmvc-ui" v3.0.3 and add it tin pom.xml, project will now run.
+
+2) Parameter 0 of constructor in org.maharnur.prathamesh.S45L05_OAuth_JWT_TokenContinues.security.SecurityConfig required a bean of type 'org.maharnur.prathamesh.S45L05_OAuth_JWT_TokenContinues.config.RsaKeyProperties' that could not be found. Action: Consider defining a bean of type 'org.maharnur.prathamesh.S45L05_OAuth_JWT_TokenContinues.config.RsaKeyProperties' in your configuration.
+sol: add @ConfigurationPropertiesScan in main application.java file.
+
+3) Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.security.oauth2.jwt.JwtEncoder]: Factory method 'jwtEncoder' threw exception with message: Cannot invoke "java.security.interfaces.RSAPublicKey.getModulus()" because "pub" is null
+sol: the path to rsa public and private key was not mentioned hence it caused error mention the path like 'rsa.public-key=classpath:certs/public.pem'.
+
+4) in Swagger-ui after doing authorization by passing the token, one api '/test' could not be used 
+sol: check the the @SecurityScheme name and @SecurityRequirement name attribute are same.
+
+5) Description:
+Parameter 0 of method jwtEncoder in org.maharnur.prathamesh.S45L06_AddingPublic_PrivateKey_Generator.security.SecurityConfig required a bean of type 'com.nimbusds.jose.jwk.source.JWKSource' that could not be found.
+Action:
+Consider defining a bean of type 'com.nimbusds.jose.jwk.source.JWKSource' in your configuration.
+
+sol: add @Bean to jwkSource() in SecurityConfig.
+
+6) Caused by: java.lang.ClassNotFoundException: org.springframework.security.oauth2.server.resource.web.access.BearerTokenAccessDeniedHandler
+sol: mistakenly added 'oauth2-client' instead of 'oauth2-resource-server'
+
+7) java.lang.IllegalArgumentException: Given that there is no default password encoder configured, each password must have a password encoding prefix. Please either prefix this password with '{noop}' or set a default password encoder in `DelegatingPasswordEncoder`.
+sol: add PasswordEncoder in SecurityConfig.java
+
+8) Database "D:/programs_learning/Java/Udemy_Chaand/SpringBoot_RESTful_Course_pratice/S45L09-UserFromDB__JPAAndJWT_Continues/db/blogdb" not found, either pre-create it or allow remote database creation (not recommended in secure environments) [90149-240] 90149/90149
+sol: check the url entered in H2 db field and field matches exactly.

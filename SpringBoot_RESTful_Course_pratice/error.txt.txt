@@ -1,5 +1,0 @@
-1) Caused by: java.lang.IllegalStateException: @ConditionalOnMissingBean did not specify a bean using type, name or annotation and the attempt to deduce the bean's type failed
-Caused by: java.lang.NoClassDefFoundError: org/springframework/boot/autoconfigure/web/servlet/WebMvcProperties at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
-Caused by: java.lang.ClassNotFoundException: org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
-sol: This error occurred when using openapi v2.8 in springboot 4 because of incompatibility. Go to mvnrepository.com for this dependency
-     "springdoc-openapi-starter-webmvc-ui" v3.0.3 and add it tin pom.xml, project will now run.
