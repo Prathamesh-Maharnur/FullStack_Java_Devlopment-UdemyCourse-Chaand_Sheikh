@@ -54,7 +54,7 @@ public class SecurityConfig {
 
         @Bean
         public AuthenticationManager authManager(UserDetailsService userDetailService) {
-                AuthenticationProvider authProvider = new DaoAuthenticationProvider(userDetailService);
+                var authProvider = new DaoAuthenticationProvider(userDetailService);
                 return new ProviderManager(authProvider);
         }
 
@@ -70,7 +70,7 @@ public class SecurityConfig {
 
         @Bean
         public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-                http.csrf(csrf -> csrf.ignoringRequestMatchers("/db-console"))
+                http.csrf(csrf -> csrf.ignoringRequestMatchers("/db-console/**"))
                                 .headers(headers -> headers
                                                 .frameOptions(frameOptions -> frameOptions
                                                                 .sameOrigin()))
