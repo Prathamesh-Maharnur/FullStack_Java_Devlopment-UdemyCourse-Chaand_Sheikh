@@ -28,3 +28,7 @@ sol: add PasswordEncoder in SecurityConfig.java
 
 8) Database "D:/programs_learning/Java/Udemy_Chaand/SpringBoot_RESTful_Course_pratice/S45L09-UserFromDB__JPAAndJWT_Continues/db/blogdb" not found, either pre-create it or allow remote database creation (not recommended in secure environments) [90149-240] 90149/90149
 sol: check the url entered in H2 db field and field matches exactly.
+
+9)  |-ERROR in ch.qos.logback.classic.pattern.LoggerConverter@345f69f3 - failed to parse integer string [1.] java.lang.NumberFormatException: For input string: "1."
+        at java.lang.NumberFormatException: For input string: "1."
+sol: change the '%c{1.}' in logger config to '%c{1}' because it should be number not decimal.
