@@ -32,3 +32,9 @@ sol: check the url entered in H2 db field and field matches exactly.
 9)  |-ERROR in ch.qos.logback.classic.pattern.LoggerConverter@345f69f3 - failed to parse integer string [1.] java.lang.NumberFormatException: For input string: "1."
         at java.lang.NumberFormatException: For input string: "1."
 sol: change the '%c{1.}' in logger config to '%c{1}' because it should be number not decimal.
+
+10) 2026-06-03 17:55:16,352 [DEBUG] o.s.s.w.FilterChainProxy [http-nio-8080-exec-10] Secured POST /auth/users/add
+2026-06-03 17:55:16,733 [WARN] o.s.w.s.m.s.DefaultHandlerExceptionResolver [http-nio-8080-exec-10] Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<java.lang.String> org.maharnur.prathamesh.S46L03_AuthController_Add_Validations.controller.AuthController.addUser(org.maharnur.prathamesh.S46L03_AuthController_Add_Validations.payload.auth.AccountDTO): [Field error in object 'accountDTO' on field 'email': rejected value [prathameshm]; codes [Email.accountDTO.email,Email.email,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [accountDTO.email,email]; arguments []; default message [email],[Ljakarta.validation.constraints.Pattern$Flag;@67f26b70,.*]; default message [must be a well-formed email address]] ]
+2026-06-03 17:55:16,758 [DEBUG] o.s.s.w.FilterChainProxy [http-nio-8080-exec-10] Securing GET /error
+ sol: spring tried '/error' when accountDTO validation failed, so it gave 401 Unauthorised, add '/error' in SecurityConfig then it will 
+      throw 401 code as expected.
