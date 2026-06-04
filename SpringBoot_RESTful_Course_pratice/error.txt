@@ -38,3 +38,12 @@ sol: change the '%c{1.}' in logger config to '%c{1}' because it should be number
 2026-06-03 17:55:16,758 [DEBUG] o.s.s.w.FilterChainProxy [http-nio-8080-exec-10] Securing GET /error
  sol: spring tried '/error' when accountDTO validation failed, so it gave 401 Unauthorised, add '/error' in SecurityConfig then it will 
       throw 401 code as expected.
+
+10) curl -X 'GET' \
+  'http://127.0.0.1:8080/auth/users' \
+  -H 'accept: application/json'
+  
+Code	Details
+401	
+Error: response status is 401
+sol: for authorized url the jwt token is not send with curl command hence add @SecurtityRequired in AuthController.
