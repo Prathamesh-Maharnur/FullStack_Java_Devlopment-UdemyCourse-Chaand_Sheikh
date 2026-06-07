@@ -79,7 +79,7 @@ public class SecurityConfig {
                                                                 "/swagger-ui/**", "/swagger-ui.html/**",
                                                                 "/v3/api-docs/**", "/db-console/**", "/error")
                                                 .permitAll()
-                                                .requestMatchers("/test", "/auth/profile").authenticated()
+                                                .requestMatchers("/test", "/auth/profile", "/auth/profile/update-password").authenticated()
                                                 .requestMatchers("/auth/users").hasAuthority("SCOPE_ADMIN"))
                                 .oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()))
                                 .sessionManagement(session -> session

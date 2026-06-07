@@ -9,6 +9,7 @@ import javax.security.sasl.AuthenticationException;
 import org.maharnur.prathamesh.S46L08_AuthController_Update_Password.model.Account;
 import org.maharnur.prathamesh.S46L08_AuthController_Update_Password.payload.auth.AccountDTO;
 import org.maharnur.prathamesh.S46L08_AuthController_Update_Password.payload.auth.AccountViewDTO;
+import org.maharnur.prathamesh.S46L08_AuthController_Update_Password.payload.auth.PasswordDTO;
 import org.maharnur.prathamesh.S46L08_AuthController_Update_Password.payload.auth.ProfileDTO;
 import org.maharnur.prathamesh.S46L08_AuthController_Update_Password.payload.auth.TokenDTO;
 import org.maharnur.prathamesh.S46L08_AuthController_Update_Password.payload.auth.UserLoginDTO;
@@ -122,7 +123,16 @@ public class AuthController {
     @ApiResponse(responseCode = "403", description="token error")
     @Operation(summary = "update profile")
     @SecurityRequirement(name = "springboot-demo-api")
-    public String update_password(Authentication authentication){
+    public AccountViewDTO update_password(@Valid @RequestBody PasswordDTO passwordDTO,Authentication authentication){
+        String email = authentication.getName();
+         Optional<Account> optionalAccount = accountService.findByEmail(email);
+         if(optionalAccount.isPresent()){
+            Account account = optionalAccount.get();
+            account.setPassword(passwordDTO.getPassword());
+            accountService.save(account);
+            AccountViewDTO accountViewDTO = new AccountViewDTO(account.getId(), account.getEmail(),account.getAuthorities());
+            return accountViewDTO;
+         }
         return null;
     }
 }
