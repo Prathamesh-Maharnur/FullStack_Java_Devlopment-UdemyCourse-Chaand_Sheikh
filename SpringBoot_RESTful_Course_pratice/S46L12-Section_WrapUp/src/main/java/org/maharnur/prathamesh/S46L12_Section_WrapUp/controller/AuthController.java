@@ -174,7 +174,7 @@ public class AuthController {
             return ResponseEntity.ok("User deleted");
         }
 
-        return new ResponseEntity<String>("Bad equest", HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<String>("Bad Request", HttpStatus.BAD_REQUEST);
     }
 
 }
