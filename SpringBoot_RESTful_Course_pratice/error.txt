@@ -46,7 +46,13 @@ sol: change the '%c{1.}' in logger config to '%c{1}' because it should be number
 Code	Details
 401	
 Error: response status is 401
-sol: for authorized url the jwt token is not send with curl command hence add @SecurtityRequired in AuthController.
+sol: for authorized url the jwt token is not send with curl command hence add @SecurtityRequirement in AuthController.
 
 11) swagger docs: Failed to load remote configuration.
 sol:  add oauth2ResourceServer(oauth -> oauth.jwt()) and sessionManagement()
+
+12) code 400 an request body was empty
+sol: change the import of swagger to spring ResquestBody.
+
+13) code 403 , jwt logged in 
+sol: the authenticated url had typo.
