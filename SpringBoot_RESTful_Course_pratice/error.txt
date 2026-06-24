@@ -28,3 +28,31 @@ sol: add PasswordEncoder in SecurityConfig.java
 
 8) Database "D:/programs_learning/Java/Udemy_Chaand/SpringBoot_RESTful_Course_pratice/S45L09-UserFromDB__JPAAndJWT_Continues/db/blogdb" not found, either pre-create it or allow remote database creation (not recommended in secure environments) [90149-240] 90149/90149
 sol: check the url entered in H2 db field and field matches exactly.
+
+9)  |-ERROR in ch.qos.logback.classic.pattern.LoggerConverter@345f69f3 - failed to parse integer string [1.] java.lang.NumberFormatException: For input string: "1."
+        at java.lang.NumberFormatException: For input string: "1."
+sol: change the '%c{1.}' in logger config to '%c{1}' because it should be number not decimal.
+
+10) 2026-06-03 17:55:16,352 [DEBUG] o.s.s.w.FilterChainProxy [http-nio-8080-exec-10] Secured POST /auth/users/add
+2026-06-03 17:55:16,733 [WARN] o.s.w.s.m.s.DefaultHandlerExceptionResolver [http-nio-8080-exec-10] Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<java.lang.String> org.maharnur.prathamesh.S46L03_AuthController_Add_Validations.controller.AuthController.addUser(org.maharnur.prathamesh.S46L03_AuthController_Add_Validations.payload.auth.AccountDTO): [Field error in object 'accountDTO' on field 'email': rejected value [prathameshm]; codes [Email.accountDTO.email,Email.email,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [accountDTO.email,email]; arguments []; default message [email],[Ljakarta.validation.constraints.Pattern$Flag;@67f26b70,.*]; default message [must be a well-formed email address]] ]
+2026-06-03 17:55:16,758 [DEBUG] o.s.s.w.FilterChainProxy [http-nio-8080-exec-10] Securing GET /error
+ sol: spring tried '/error' when accountDTO validation failed, so it gave 401 Unauthorised, add '/error' in SecurityConfig then it will 
+      throw 401 code as expected.
+
+10) curl -X 'GET' \
+  'http://127.0.0.1:8080/auth/users' \
+  -H 'accept: application/json'
+  
+Code	Details
+401	
+Error: response status is 401
+sol: for authorized url the jwt token is not send with curl command hence add @SecurtityRequirement in AuthController.
+
+11) swagger docs: Failed to load remote configuration.
+sol:  add oauth2ResourceServer(oauth -> oauth.jwt()) and sessionManagement()
+
+12) code 400 an request body was empty
+sol: change the import of swagger to spring ResquestBody.
+
+13) code 403 , jwt logged in 
+sol: the authenticated url had typo.
