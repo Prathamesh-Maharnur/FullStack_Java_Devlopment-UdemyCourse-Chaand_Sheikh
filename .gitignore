@@ -68,3 +68,9 @@ course_files/
 **/SpringBoot_Course_Pratice/**/secret.properties
 keypair.pem
 private.pem
+
+
+############################
+# uploaded image files
+############################
+**static/uploads/**
