@@ -101,7 +101,7 @@ public class AlbumController {
     @ApiResponse(responseCode = "400", description = "Please check payload or token")
     @Operation(summary = "Upload photo into album")
     @SecurityRequirement(name = "springboot-demo-api")
-    public ResponseEntity<List<String>> photos(@RequestPart MultipartFile[] files, @PathVariable long album_id,
+    public ResponseEntity<List<String>> photos(@RequestPart(required = true) MultipartFile[] files, @PathVariable long album_id,
             Authentication authentication) {
         String email = authentication.getName();
         Optional<Account> optionalAccount = accountService.findByEmail(email);
@@ -149,7 +149,7 @@ public class AlbumController {
 
                 }
             } else {
-                fileNamesWithError.add(file.getContentType());
+                fileNamesWithError.add(file.getOriginalFilename());
             }
         }
 
