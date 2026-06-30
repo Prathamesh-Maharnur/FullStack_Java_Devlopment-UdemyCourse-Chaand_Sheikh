@@ -156,7 +156,7 @@ public class AlbumController {
                     photoService.save(photo);
 
                     BufferedImage thumbImage = AppUtil.getThumbnail(file, THUMBNAIL_WIDTH);
-                    File thumbnail_location = new File(AppUtil.get_photo_upload_path(fileName, THUMBNAIL_FOLDER_NAME, album_id));
+                    File thumbnail_location = new File(AppUtil.get_photo_upload_path(final_photo_name, THUMBNAIL_FOLDER_NAME, album_id));
                     ImageIO.write(thumbImage, file.getContentType().split("/")[1], thumbnail_location);
                 } catch (Exception e) {
                     log.debug(AlbumError.PHOTO_UPLOAD_ERROR.toString()+": "+e.getMessage());
