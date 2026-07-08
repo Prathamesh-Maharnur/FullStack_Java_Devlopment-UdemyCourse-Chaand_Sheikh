@@ -56,3 +56,10 @@ sol: change the import of swagger to spring ResquestBody.
 
 13) code 403 , jwt logged in 
 sol: the authenticated url had typo.
+
+14) 2026-07-08 21:06:41,349 [WARN] o.s.w.s.m.s.DefaultHandlerExceptionResolver [http-nio-8080-exec-5] Resolved [org.springframework.web.multipart.support.MissingServletRequestPartException: Required part 'files' is not present.]
+2026-07-08 21:07:07,246 [WARN] o.s.w.s.m.s.DefaultHandlerExceptionResolver [http-nio-8080-exec-10] Resolved [org.springframework.web.multipart.MaxUploadSizeExceededException: Maximum upload size exceeded]
+2026-07-08 21:07:07,251 [WARN] o.s.w.s.m.s.DefaultHandlerExceptionResolver [http-nio-8080-exec-10] Resolved [org.springframework.web.multipart.MaxUploadSizeExceededException: Maximum upload size exceeded]
+sol: set the file and request size limit in application.properties:
+     spring.servlet.multipart.max-file-size=10MB
+     spring.servlet.multipart.max-request-size=10MB
