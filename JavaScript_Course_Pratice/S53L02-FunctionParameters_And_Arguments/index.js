@@ -11,4 +11,6 @@ console.log("--------------------------------");
 message("Prathamesh", "SpringBoot");
 console.log("--------------------------------");
 message("Prathamesh", "SpringBoot", "Great");
+console.log("--------------------------------");
+message("Prathamesh", "SpringBoot", "Amazing", "DummyWord");
 
