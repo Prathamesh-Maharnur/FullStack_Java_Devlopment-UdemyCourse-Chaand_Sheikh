@@ -7,7 +7,8 @@ let add2 = function(a,b){
 }
 
 let result = add1(10, 5);
+console.log(`The result is: ${result}`)
 
-let result = add2(10, 5);
+result = add2(10, 5);
 console.log(`The result is: ${result}`);
 
